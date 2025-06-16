@@ -8,8 +8,8 @@ const App: React.FC = () => {
   const { guesses, currentGuess, handleKeyPress, message, getLetterStates, shareUrl } = useGame();
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 pb-24">
-      <h1 className="text-4xl font-bold mb-8">Infinity Wordle</h1>
+    <div className="min-h-screen bg-[#121213] flex flex-col items-center justify-center p-4 pb-24">
+      <h1 className="text-4xl font-bold mb-8 text-white">Infinity Wordle</h1>
       <GameBoard
         guesses={guesses}
         currentGuess={currentGuess}

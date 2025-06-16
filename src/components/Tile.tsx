@@ -15,13 +15,13 @@ const Tile: React.FC<TileProps> = ({ letter, state }) => {
       case 'absent':
         return 'bg-wordle-absent';
       default:
-        return 'bg-transparent border-gray-500';
+        return 'bg-[#121213] border-gray-500';
     }
   };
 
   return (
     <div
-      className={`flex items-center justify-center aspect-square border-2 ${getBackgroundColor()} text-white font-bold text-2xl`}
+      className={`flex items-center justify-center aspect-square border-2 ${getBackgroundColor()} text-white font-bold text-2xl uppercase`}
     >
       {letter}
     </div>

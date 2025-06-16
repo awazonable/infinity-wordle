@@ -11,10 +11,6 @@ const Keyboard: React.FC<KeyboardProps> = ({ onKeyPress }) => {
     ['Enter', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '⌫'],
   ];
 
-  const handleKeyClick = (key: string) => {
-    onKeyPress(key);
-  };
-
   return (
     <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#121213]">
       <div className="max-w-[500px] mx-auto">
@@ -24,7 +20,7 @@ const Keyboard: React.FC<KeyboardProps> = ({ onKeyPress }) => {
               {row.map((key) => (
                 <button
                   key={key}
-                  onClick={() => handleKeyClick(key)}
+                  onClick={() => onKeyPress(key)}
                   className={`
                     min-w-[40px] h-14 px-2 rounded
                     bg-wordle-keyboard text-white font-bold
