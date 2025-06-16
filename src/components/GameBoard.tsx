@@ -18,11 +18,15 @@ const GameBoard: React.FC<GameBoardProps> = ({
   getLetterStates,
 }) => {
   // 空行を含めて常にmaxGuesses行表示
-  const rows = [
-    ...guesses,
-    ...(guesses.length < maxGuesses ? [currentGuess] : []),
-    ...Array(Math.max(0, maxGuesses - guesses.length - 1)).fill(''),
-  ];
+  const rows = Array(maxGuesses).fill('').map((_, index) => {
+    if (index < guesses.length) {
+      return guesses[index];
+    }
+    if (index === guesses.length) {
+      return currentGuess;
+    }
+    return '';
+  });
 
   return (
     <div className="flex flex-col gap-2 items-center w-full max-w-[350px]">
