@@ -39,7 +39,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
     const remainingRows = maxGuesses - guesses.length - 1;
     for (let i = 0; i < remainingRows; i++) {
       emptyRows.push(
-        <div key={`empty-${i}`} className="grid grid-cols-5 gap-2">
+        <div key={`empty-${i}`} className="flex justify-center gap-2">
           {renderRow('', guesses.length + i + 1)}
         </div>
       );
@@ -48,13 +48,13 @@ const GameBoard: React.FC<GameBoardProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-2 mb-[200px] max-w-[350px] mx-auto">
+    <div className="flex flex-col items-center gap-2 mb-[200px] max-w-[350px] mx-auto">
       {guesses.map((guess, index) => (
-        <div key={`guess-${index}`} className="grid grid-cols-5 gap-2">
+        <div key={`guess-${index}`} className="flex justify-center gap-2">
           {renderRow(guess, index)}
         </div>
       ))}
-      <div className="grid grid-cols-5 gap-2">
+      <div className="flex justify-center gap-2">
         {renderRow(currentGuess, guesses.length, true)}
       </div>
       {renderEmptyRows()}

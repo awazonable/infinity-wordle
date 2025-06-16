@@ -21,7 +21,7 @@ const Tile: React.FC<TileProps> = ({ letter, state }) => {
 
   return (
     <div
-      className={`w-14 h-14 border-2 border-gray-500 flex items-center justify-center text-2xl font-bold uppercase ${getBackgroundColor()} text-white`}
+      className={`w-12 h-12 border-2 border-gray-500 flex items-center justify-center text-2xl font-bold uppercase ${getBackgroundColor()} text-white`}
     >
       {letter}
     </div>
