@@ -3,7 +3,7 @@ import GameBoard from './components/GameBoard';
 import Keyboard from './components/Keyboard';
 
 function App() {
-  const { guesses, currentGuess, handleKeyPress, message, getLetterStates } = useGame();
+  const { guesses, currentGuess, handleKeyPress, message, getLetterStates, shareUrl } = useGame();
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
@@ -18,6 +18,11 @@ function App() {
       {message && (
         <div className="mt-4 text-lg font-semibold text-yellow-400">
           {message}
+        </div>
+      )}
+      {shareUrl && (
+        <div className="mt-4 text-sm text-gray-400">
+          Share URL: <a href={shareUrl} className="text-blue-400 hover:underline">{shareUrl}</a>
         </div>
       )}
       <Keyboard onKeyPress={handleKeyPress} />

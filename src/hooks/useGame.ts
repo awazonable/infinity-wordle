@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getRandomWord, isValidWord } from '../utils/wordList';
+import { getWordFromUrl, generateShareUrl } from '../utils/urlUtils';
 
 const WORD_LENGTH = 5;
 const MAX_GUESSES = 6;
@@ -10,8 +11,18 @@ export const useGame = () => {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [gameOver, setGameOver] = useState(false);
-  const [targetWord] = useState(getRandomWord());
+  const [targetWord, setTargetWord] = useState(() => {
+    const wordFromUrl = getWordFromUrl();
+    return wordFromUrl || getRandomWord();
+  });
   const [message, setMessage] = useState('');
+  const [shareUrl, setShareUrl] = useState('');
+
+  useEffect(() => {
+    if (targetWord) {
+      setShareUrl(generateShareUrl(targetWord));
+    }
+  }, [targetWord]);
 
   const checkGuess = (guess: string): LetterState[] => {
     const result: LetterState[] = [];
@@ -102,6 +113,7 @@ export const useGame = () => {
     currentGuess,
     gameOver,
     message,
+    shareUrl,
     handleKeyPress,
     getLetterStates,
   };
