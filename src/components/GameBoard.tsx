@@ -48,7 +48,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-2 mb-[200px]">
+    <div className="flex flex-col gap-2 mb-[200px] max-w-[350px] mx-auto">
       {guesses.map((guess, index) => (
         <div key={`guess-${index}`} className="flex gap-2">
           {renderRow(guess, index)}

@@ -70,3 +70,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* カスタムカラーのフォールバック */
+.bg-wordle-correct {
+  background-color: #538d4e;
+}
+
+.bg-wordle-present {
+  background-color: #b59f3b;
+}
+
+.bg-wordle-absent {
+  background-color: #3a3a3c;
+}
+
+.bg-wordle-keyboard {
+  background-color: #818384;
+}

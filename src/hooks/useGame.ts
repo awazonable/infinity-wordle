@@ -11,7 +11,7 @@ export const useGame = () => {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [currentGuess, setCurrentGuess] = useState('');
   const [gameOver, setGameOver] = useState(false);
-  const [targetWord, setTargetWord] = useState(() => {
+  const [targetWord] = useState(() => {
     const wordFromUrl = getWordFromUrl();
     return wordFromUrl || getRandomWord();
   });
