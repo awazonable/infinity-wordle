@@ -1,6 +1,7 @@
 import { useGame } from './hooks/useGame';
 import GameBoard from './components/GameBoard';
 import Keyboard from './components/Keyboard';
+import Footer from './components/Footer';
 
 function App() {
   const { guesses, currentGuess, handleKeyPress, message, getLetterStates, shareUrl } = useGame();
@@ -26,6 +27,7 @@ function App() {
         </div>
       )}
       <Keyboard onKeyPress={handleKeyPress} />
+      <Footer />
     </div>
   );
 }
