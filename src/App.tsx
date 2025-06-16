@@ -1,13 +1,14 @@
+import React from 'react';
 import { useGame } from './hooks/useGame';
 import GameBoard from './components/GameBoard';
 import Keyboard from './components/Keyboard';
 import Footer from './components/Footer';
 
-function App() {
+const App: React.FC = () => {
   const { guesses, currentGuess, handleKeyPress, message, getLetterStates, shareUrl } = useGame();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 pb-24">
       <h1 className="text-4xl font-bold mb-8">Infinity Wordle</h1>
       <GameBoard
         guesses={guesses}
@@ -30,6 +31,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
