@@ -17,9 +17,9 @@ const GameBoard: React.FC<GameBoardProps> = ({
   wordLength,
   getLetterStates,
 }) => {
-  const renderRow = (guess: string, rowIndex: number) => {
+  const renderRow = (guess: string, rowIndex: number, isCurrentRow: boolean = false) => {
     const tiles = [];
-    const states = guess ? getLetterStates(guess) : Array(wordLength).fill('empty');
+    const states = isCurrentRow ? Array(wordLength).fill('empty') : (guess ? getLetterStates(guess) : Array(wordLength).fill('empty'));
 
     for (let i = 0; i < wordLength; i++) {
       const letter = guess[i] || '';
@@ -39,7 +39,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
     const remainingRows = maxGuesses - guesses.length - 1;
     for (let i = 0; i < remainingRows; i++) {
       emptyRows.push(
-        <div key={`empty-${i}`} className="flex gap-2">
+        <div key={`empty-${i}`} className="grid grid-cols-5 gap-2">
           {renderRow('', guesses.length + i + 1)}
         </div>
       );
@@ -50,12 +50,12 @@ const GameBoard: React.FC<GameBoardProps> = ({
   return (
     <div className="flex flex-col gap-2 mb-[200px] max-w-[350px] mx-auto">
       {guesses.map((guess, index) => (
-        <div key={`guess-${index}`} className="flex gap-2">
+        <div key={`guess-${index}`} className="grid grid-cols-5 gap-2">
           {renderRow(guess, index)}
         </div>
       ))}
-      <div className="flex gap-2">
-        {renderRow(currentGuess, guesses.length)}
+      <div className="grid grid-cols-5 gap-2">
+        {renderRow(currentGuess, guesses.length, true)}
       </div>
       {renderEmptyRows()}
     </div>
