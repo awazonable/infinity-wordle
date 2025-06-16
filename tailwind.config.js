@@ -4,6 +4,31 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    'grid-cols-5',
+    'grid',
+    'gap-2',
+    'aspect-square',
+    'flex',
+    'flex-col',
+    'items-center',
+    'justify-center',
+    'w-full',
+    'max-w-[350px]',
+    'mx-auto',
+    'px-2',
+    'border-2',
+    'border-gray-500',
+    'text-2xl',
+    'font-bold',
+    'uppercase',
+    'text-white',
+    'box-border',
+    'bg-wordle-correct',
+    'bg-wordle-present',
+    'bg-wordle-absent',
+    'bg-transparent'
+  ],
   theme: {
     extend: {
       colors: {
